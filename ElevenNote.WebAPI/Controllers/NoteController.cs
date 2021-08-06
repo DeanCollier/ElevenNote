@@ -20,12 +20,21 @@ namespace ElevenNote.WebAPI.Controllers
             var noteService = new NoteService(userId);
             return noteService;
         }
+
         // GET
         public IHttpActionResult Get()
         {
             NoteService noteService = CreateNoteService();
             var notes = noteService.GetNotes();
             return Ok(notes);
+        }
+
+        // GET NOTE BY ID
+        public IHttpActionResult Get(int id)
+        {
+            NoteService noteService = CreateNoteService();
+            var note = noteService.GetNoteById(id);
+            return Ok(note);
         }
 
         // POST
@@ -40,8 +49,9 @@ namespace ElevenNote.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok();
-
         }
+
+
 
     }
 }
