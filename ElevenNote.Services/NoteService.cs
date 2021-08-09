@@ -34,6 +34,7 @@ namespace ElevenNote.Services
             }
         }
 
+        // between NoteDetail and GET methods
         public IEnumerable<NoteListItem> GetNotes()
         {
             using (var ctx = new ApplicationDbContext())
@@ -55,6 +56,7 @@ namespace ElevenNote.Services
             }
         }
 
+        // between NoteDetail and GET methods
         public NoteDetail GetNoteById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -70,11 +72,12 @@ namespace ElevenNote.Services
                         Title = entity.Title,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.Modifiedutc
+                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
 
+        // between NoteEdit and PUT methods
         public bool UpdateNote(NoteEdit model)
         {
             using(var ctx = new ApplicationDbContext())
@@ -86,10 +89,27 @@ namespace ElevenNote.Services
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
-                entity.Modifiedutc = DateTimeOffset.UtcNow;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        // for  note DELETE method
+        public bool DeleteNote(int noteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Notes
+                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+
+                ctx.Notes.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+
     }
 }

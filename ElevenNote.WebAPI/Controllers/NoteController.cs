@@ -51,6 +51,31 @@ namespace ElevenNote.WebAPI.Controllers
             return Ok();
         }
 
+        // PUT
+        public IHttpActionResult Put(NoteEdit note)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateNoteService();
+
+            if (!service.UpdateNote(note))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        // DELETE
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateNoteService();
+
+            if (!service.DeleteNote(id))
+                return InternalServerError();
+
+            return Ok();
+
+        }
 
 
     }
