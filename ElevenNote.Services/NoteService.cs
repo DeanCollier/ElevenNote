@@ -1,5 +1,5 @@
 ﻿using ElevenNote.Data;
-using ElevenNote.Models;
+using ElevenNote.Models.NoteModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,8 @@ namespace ElevenNote.Services
                     OwnerId = _userId,
                     Title = model.Title,
                     Content = model.Content,
-                    CreatedUtc = DateTimeOffset.Now
+                    CreatedUtc = DateTimeOffset.Now,
+                    CategoryId = model.CategoryId,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -72,7 +73,8 @@ namespace ElevenNote.Services
                         Title = entity.Title,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ModifiedUtc = entity.ModifiedUtc,
+                        Category = entity.Category
                     };
             }
         }
@@ -89,6 +91,7 @@ namespace ElevenNote.Services
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
+                entity.CategoryId = model.CategoryId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

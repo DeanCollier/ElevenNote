@@ -33,3 +33,6 @@ D:\1150\Week9\ElevenNote\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.cs
 D:\1150\Week9\ElevenNote\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.csproj.CopyComplete
 D:\1150\Week9\ElevenNote\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.dll
 D:\1150\Week9\ElevenNote\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.pdb
+D:\1150\Week9\ElevenNote\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.InitialCreate.resources
+D:\1150\Week9\ElevenNote\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.csproj.GenerateResource.cache
+D:\1150\Week9\ElevenNote\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.CreatedCategories.resources

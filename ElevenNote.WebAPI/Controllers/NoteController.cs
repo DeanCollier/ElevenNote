@@ -1,4 +1,4 @@
-﻿using ElevenNote.Models;
+﻿using ElevenNote.Models.NoteModels;
 using ElevenNote.Services;
 using Microsoft.AspNet.Identity;
 using System;

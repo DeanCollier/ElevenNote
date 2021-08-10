@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ElevenNote.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElevenNote.Models
+namespace ElevenNote.Models.NoteModels
 {
     public class NoteDetail
     {
@@ -20,5 +21,8 @@ namespace ElevenNote.Models
 
         [Display(Name ="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        [Display(Name = "Category")]
+        public virtual Category Category { get; set; }
     }
 }
